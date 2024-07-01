@@ -66,6 +66,7 @@ class LeadsPage {
 
     async goToActivityTab() {
         await this.activityTabItem.click();
+        await this.page.waitForSelector('.filterMenuLink')
     }
 
     async createTask(subject, dueDate, status) {

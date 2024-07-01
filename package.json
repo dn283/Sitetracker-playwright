@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "loginTest": "npx playwright test sitetrackerLogin.spec.js "
+    "LoginTest": "npx playwright test TC1_sitetrackerLogin.spec.js",
+    "LeadsCountTest": "npx playwright test TC2_LeadsNavigateAndLeadCount.spec.js",
+    "TaskValidationTest": "npx playwright test TC3and4TaskValidations.spec.js",
+    "FilterTest": "npx playwright test TC5_LeadsFilter.spec.js",
+    "TestALL":"npx playwright test --workers=1"
   },
   "keywords": [],
   "author": "",

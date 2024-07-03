@@ -1,0 +1,30 @@
+name: Playwright Tests with Allure Reports
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        browser: [chromium, firefox, webkit]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install dependencies
+        run: npm install
+      - name: Download Playwright browsers
+        run: npx playwright install
+      - name: Run Playwright tests with Allure reports
+        run: npm run TestALL
+      - name: Upload Allure reports
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: allure-report
+          path: allure-results/
